@@ -91,7 +91,7 @@ for (let i = 0; i < posts.length; i++) {
     </div>            
 </div>`
     container.append(div);
-    const btnLike = document.querySelector(".js-likes");
+    const btnLike = document.querySelector(".js-like-button");
     const likeCounter = document.getElementById("like-counter-1");
     btnLike.addEventListener("click", function () {
         let sum = 1;
