@@ -91,13 +91,20 @@ for (let i = 0; i < posts.length; i++) {
     </div>            
 </div>`
     container.append(div);
-    const btnLike = document.querySelector(".js-like-button");
-    const likeCounter = document.getElementById("like-counter-1");
-    btnLike.addEventListener("click", function () {
-        let sum = 1;
-        btnLike.classList.toggle("like-button--liked");
-        const like = sum + posts[i].likes;
-        console.log(like);
-        likeCounter.innerHTML = like;
-    })
 }
+
+const idPost = [];
+posts.forEach((element, i) => {
+    const btnLike = document.querySelectorAll(".js-like-button");
+    const likeCounter = document.querySelectorAll("#like-counter-1");
+    btnLike[i].addEventListener("click", function () {
+        const toggleBtn = btnLike[i].classList.toggle("like-button--liked");
+        if (toggleBtn === true) {
+            likeCounter[i].innerHTML = posts[i].likes + 1;
+        } else {
+            likeCounter[i].innerHTML = posts[i].likes;
+        }
+        idPost.push(posts[i].id)
+        console.log(idPost);
+    })
+});
